@@ -66,7 +66,7 @@ session_start();
                        <label>P.M.</label>
                        <button type="button" name= "break3" onclick="breakstartPM()" class="break-buttons">Break-Start</button>
                        <button type="button" name= "break4" onclick="breakendPM()" class="break-buttons">Break-End</button>
-                       <button type="button" name= "break4" onclick="breakendPM()" class="break-buttons">Break-End</button>
+                      
                     </div>
             </div>
             <div class="user-logs">
