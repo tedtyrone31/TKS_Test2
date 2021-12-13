@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "tks_login_db";
+$dbname = "tks_new";
 
 $con = mysqli_connect();
 

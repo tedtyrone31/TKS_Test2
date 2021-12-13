@@ -20,7 +20,7 @@ session_start();
                 //  }
                 //read from database
                 $user_id = random_num(3);
-                $query = "select * from users where user_name = '$user_name' limit 1";
+                $query = "select * from users_login where user_name = '$user_name' limit 1";
 
                 $result = mysqli_query($con, $query);
                 
@@ -75,6 +75,7 @@ session_start();
     <div class="alert-danger">
           <div><?php echo $errors ?></div>         
     </div>
+    
     <?php endif;?>
         <form method="post"> 
             <label class="log-in-form">Log-in</label>
