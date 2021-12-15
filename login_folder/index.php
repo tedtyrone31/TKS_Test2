@@ -12,23 +12,32 @@ session_start();
 
     // if ($_SERVER['REQUEST_METHOD'] == "POST")
     // {
-    //         //something was posted
+            //something was posted
           
-    //         $break1 = $_GET['break1'];
+            // $break1 = $_GET['break1'];
     //         $break2 = $_POST['break2'];
     //         $break3 = $_POST['break3'];
     //         $break4 = $_POST['break4'];
-    //         $query = "insert into breaks_data (break1,break2,break3,break4) values ('$break1','$break2', '$break3', '$break4')"; 
+            // $query = "insert into test (break1) values ('$break1')"; 
             
-    //         mysqli_query($con, $query);
-    // }
+            // mysqli_query($con, $query);
+    // }    s
 //  if ($password) !== ($password_confirm) {
 //                     die('Password and Confirm password should match!');   
 //                  }
 //                 save to database
 
-               
-               
+if(isset($_POST['click']))
+{
+    $date_clicked = date('Y-m-d H:i:s');;
+
+
+    $query = "Insert into test(break1) VALUES ('$date_clicked')";
+    mysqli_query($con, $query);
+
+}      
+    
+
 
     // }
 ?>
@@ -49,7 +58,7 @@ session_start();
         <div class="header">
             <h1>OSP CEBU</h1>
             <h3>TIMEKEEPING SYSTEM</h3>
-        </div> 
+        </div>
     </header>
         <section class="user-page">
             <div class="end-user">
@@ -60,7 +69,12 @@ session_start();
                     <div class="emp_button"><br><br>
                        <label>A.M.</label>
                        <!-- <input type="submit" value="Break-start"> -->
-                       <form  method="get">
+                       <!-- <form method="$_POST" action="">
+                       <input type="time" name="break1" value="<?php date('Y-m-d H:i:s')?>">
+                       <input type="submit" value="submit"> -->
+                       <form action="" method="post">
+                         <button name="click" class="click">Click me!</button>
+                     </form>
                        <button type="button" onclick="breakstartAM()" class="break-buttons">Break-Start</button>
                        <button type="button"  onclick="breakendAM()" class="break-buttons">Break-End</button>
                        <br><br><br>
@@ -122,11 +136,16 @@ session_start();
                     <form method="GET">
                     <tr>    
                         <td id="dateToday" ></td>
-                        <td id="break1" name= "break1"></td>
+                        <?php
+// date_default_timezone_set("Asia/Manila");
+// echo date('h:i:s A');
+// ?>
+                        <td id="break1" name= "break1" aria-valuemax=""></td>
                         <td id="break2" name= "break2"></td>
                         <td id="break3" name= "break3"></td>
                         <td id="break4" name= "break4"></td>
                         <td></td>
+                 
                     </tr>
                     <form>
                 </table>

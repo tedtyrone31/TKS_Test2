@@ -22,7 +22,7 @@ function startTime() {
     dayOfMonth;
     document.getElementById('year').innerHTML = 
     year;
-    
+
 
     var t = setTimeout(startTime);
 }
@@ -71,6 +71,7 @@ function breakendAM(){
     s = checkTime(s);
     document.getElementById('break2').innerHTML =
     h + ":" + m + ":" + s + " " +am_pm ;
+    
 }     
 
 function breakstartPM(){

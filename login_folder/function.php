@@ -45,3 +45,11 @@ function messagebox()
     echo "<script>alert('Registration Successful!');document.location='login.php'</script>";
 }
 
+// function saveDate()
+// {
+//     date_default_timezone_set("Asia/Manila");
+//     $date = date('h:i:s A');
+    
+//     $query = "Insert into test(break1) VALUES ('$date')";
+
+// }
