@@ -27,15 +27,47 @@ session_start();
 //                  }
 //                 save to database
 
-if(isset($_POST['click']))
+if(isset($_POST['dateToday']))
 {
-    $date_clicked = date('Y-m-d H:i:s');;
+    date_default_timezone_set("Asia/Manila");
+    $date_clicked = date('Y-m-d');
+    $break1 = date('h:i:s');
 
 
-    $query = "Insert into test(break1) VALUES ('$date_clicked')";
+    $query = "Insert into users_break (dateToday,breakStart_AM) VALUES ('$date_clicked','$break1')";
     mysqli_query($con, $query);
 
-}      
+}    
+if(isset($_POST['break2']))
+{
+    date_default_timezone_set("Asia/Manila");
+    $break2 = date('h:i:s');
+
+
+    $query = "Insert into users_break (breakEnd_AM) VALUES ('$break2')";
+    mysqli_query($con, $query);
+
+}    
+if(isset($_POST['break3']))
+{
+    date_default_timezone_set("Asia/Manila");
+    $break3 = date('h:i:s');
+
+
+    $query = "Insert into users_break (breakStart_PM) VALUES ('$break3')";
+    mysqli_query($con, $query);
+
+}    
+if(isset($_POST['break4']))
+{
+    date_default_timezone_set("Asia/Manila");
+    $break4 = date('h:i:s');
+
+
+    $query = "Insert into users_break (breakEND_PM) VALUES ('$break4')";
+    mysqli_query($con, $query);
+
+}    
     
 
 
@@ -72,15 +104,26 @@ if(isset($_POST['click']))
                        <!-- <form method="$_POST" action="">
                        <input type="time" name="break1" value="<?php date('Y-m-d H:i:s')?>">
                        <input type="submit" value="submit"> -->
-                       <form action="" method="post">
-                         <button name="click" class="click">Click me!</button>
-                     </form>
-                       <button type="button" onclick="breakstartAM()" class="break-buttons">Break-Start</button>
-                       <button type="button"  onclick="breakendAM()" class="break-buttons">Break-End</button>
-                       <br><br><br>
+                       <!-- <form action="" method="post">
+                         <button name="dateToday" class="click">Click me!</button>
+                     </form> -->
+                        <form action="" method="post">
+                       <button name= "dateToday" class="break-buttons">Break-Start</button>
+                       <!-- <button type="button" onclick="breakstartAM()" class="break-buttons">Break-Start</button> -->
+                       <!-- <button type="button"  onclick="breakendAM()" class="break-buttons">Break-End</button> -->
+                    </form>
+                    <form method="post"> 
+                       <button name= "break2" class="break-buttons">Break-End</button>      
+                    </form> <br><br><br>
                        <label>P.M.</label>
-                       <button type="button"  onclick="breakstartPM()" class="break-buttons">Break-Start</button>
-                       <button type="button"  onclick="breakendPM()" class="break-buttons">Break-End</button>
+                       <form method="post"> 
+                       <button name= "break3" class="break-buttons">Break-End</button>
+                    </form> 
+                    <form method="post"> 
+                       <button name= "break4" class="break-buttons">Break-End</button>
+                    </form> 
+                       <!-- <button type="button"  onclick="breakstartPM()" class="break-buttons">Break-Start</button>
+                       <button type="button"  onclick="breakendPM()" class="break-buttons">Break-End</button> -->
                        </form>
                     </div>
             </div>
@@ -140,7 +183,7 @@ if(isset($_POST['click']))
 // date_default_timezone_set("Asia/Manila");
 // echo date('h:i:s A');
 // ?>
-                        <td id="break1" name= "break1" aria-valuemax=""></td>
+                        <td id="break1" value="<?php ?>"></td>
                         <td id="break2" name= "break2"></td>
                         <td id="break3" name= "break3"></td>
                         <td id="break4" name= "break4"></td>
